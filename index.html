@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Awesome-pyecharts</title>
+    <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+</head>
+<body>
+    <div id="bar" style="width:500px; height:300px;"></div>
+    <button id="bn">2019</button>
+    <h1>ww</h1>
+    <script>
+        $("button").click(
+            function () {
+                var chart = echarts.init(document.getElementById('bar'), 'blue', {renderer: 'svg'});
+<!--                var option={{a|safe}};-->
+                $.ajax({
+                    type: "GET",
+                    url: "http://127.0.0.1:5000/barChart",
+                    dataType: 'json',
+                    success: function (option) {
+                        chart.setOption(option);
+                        $("h1").text("qq")
+                    }
+                });
+            }
+        )
+    </script>
+</body>
+</html>

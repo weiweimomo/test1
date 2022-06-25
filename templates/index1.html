@@ -1,0 +1,44 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>疫情监控</title>
+    <link  type="text/css" href="{{url_for('static',filename='main.css')}}" rel="stylesheet">
+    <script src="../static/jquery.min.js"></script>
+    <script type="text/javascript" src="../static/echarts.min.js"></script>
+
+</head>
+<body>
+    <div id="title">我是标题</div>
+    <div id="tim">我是标题</div>
+    <div id="l1">我是左1</div>
+    <div id="l2">我是左2</div>
+    <div id="c1">
+          <div class="num"><h1>123</h1></div>
+          <div class="num"><h1>123</h1></div>
+          <div class="num"><h1>123</h1></div>
+          <div class="num"><h1>123</h1></div>
+          
+
+    </div>
+    <div id="c2">我是中2</div>
+    <div id="r1">我是右1</div>
+    <div id="r2">我是右2</div>
+
+    <script>
+         function gettime(){
+            $.ajax({
+                url:"/time",
+                timeout:10000,
+                success:function(data){
+                   $("#tim").html(data)
+                },error:function(xhr,type,errorThrown){
+                }
+
+                });
+
+         }
+         setInterval(gettime,1000)
+    </script>
+</body>
+</html>
